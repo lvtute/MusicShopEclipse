@@ -31,7 +31,7 @@ public class InsertProductServletx extends HttpServlet {
     // database connection settings
     private String dbURL = "jdbc:mysql://localhost:3306/musicshop";
     private String dbUser = "root";
-    private String dbPass = "admin123";
+    private String dbPass = "root";
     private static final String UPLOAD_DIRECTORY = "images";
 
 

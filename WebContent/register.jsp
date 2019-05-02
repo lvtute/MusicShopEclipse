@@ -39,7 +39,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript">
       $(document).ready(function () {
            var x_timer;
-           $("#name").keyup(function (e) {
+           $("#name").keyup(function (e) { /* check name by ajax */
                 clearTimeout(x_timer);
                 var user_name = $(this).val();
                 x_timer = setTimeout(function () {

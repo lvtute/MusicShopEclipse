@@ -41,7 +41,7 @@
 					<ul>
 					<li><i class="glyphicon glyphicon-headphones"></i><a href="#">Hỗ trợ 24/7</a></li>
 						<li><i class="glyphicon glyphicon-envelope" ></i><a href="mailto:contact@demoguitarshop.com">@demoguitarshop.com</a></li>
-						<li><i class="glyphicon glyphicon-earphone" ></i>+8493 552 6224</li>
+						<li><i class="glyphicon glyphicon-earphone" ></i>+8438 731 2953</li>
 						
 					</ul>
 				</div>

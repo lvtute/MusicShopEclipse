@@ -62,7 +62,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					if (request.getParameter("error") != null) {
 				%>
 				<div>
-					<p style="color: red"><%=request.getParameter("error")%></p>
+					<p style="color: red"><%=request.getParameter("error")+"hihihi"%></p>
 				</div>
 				<%
 					}

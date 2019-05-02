@@ -34,7 +34,7 @@ public class LogoutAdminServlet extends HttpServlet {
             Object sessionuseradmin = session.getAttribute("useradmin");
             if(sessionuseradmin != null){
                 session.removeAttribute("useradmin");
-                response.sendRedirect("/MusicShop/admin/login.jsp");
+                response.sendRedirect("/MusicShop/admin/login1.jsp");
             }
         }
     }

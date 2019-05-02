@@ -127,7 +127,7 @@ tr.data:hover small {color: #5b5b5b;}
     border-left: 0px solid #dcdcdc;
 }
 .inHeaderLogin {
-    background: url(../img/logo.png) no-repeat left center;
+  /*   background: url(../img/logo.png) no-repeat left center; */
     height: 75px;
 }
 .mosAdmin {

@@ -37,7 +37,7 @@ NewsletterGet newsletterGet = new NewsletterGet();
 
         String url = "", error = "";
         if (name.equals("")) {
-            error = "Vui lòng nhập tên sản phẩm!";
+            error = "Vui long nhap ten san pham "+"test hihihi";
             request.setAttribute("error", error);
         }
 
@@ -50,9 +50,10 @@ NewsletterGet newsletterGet = new NewsletterGet();
                         break; 
                    
                 }
-            } else {
-                url = "/newsletter.jsp";
-            }
+           } 
+//            else {
+//                url = "/newsletter.jsp";
+//            }
         } catch (Exception e) {
         }
         RequestDispatcher rd = getServletContext().getRequestDispatcher(url);

@@ -43,7 +43,7 @@ public class UserServlet extends HttpServlet {
         HttpSession session = request.getSession();
         switch (command) {
             case "insert":
-                users.setUserID(new java.util.Date().getTime());
+                users.setUserID(new java.util.Date().getTime());//id
                 users.setUserName(request.getParameter("name"));
                 users.setUserEmail(request.getParameter("email"));
                 users.setUserPass(request.getParameter(("pass")));
@@ -78,7 +78,7 @@ public class UserServlet extends HttpServlet {
                     url = "/MusicShop/navigate.jsp";
                 } else {
                     request.setAttribute("error", "Lỗi tên đăng nhập hoặc mật khẩu");
-                    url = "/login.jsp";
+                    url = "/MusicShop/login.jsp";
                 }
                 break;
 

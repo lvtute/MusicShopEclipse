@@ -53,7 +53,6 @@ public class UserGet {
     }
     return false;
     }
-    // phương thức thêm tài khoản
     public boolean insertUser(User u) {
         Connection connection = DBConnect.getConnecttion();
         String sql = "INSERT INTO users VALUES(?,?,?,?,?,?)";
