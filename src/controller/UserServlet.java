@@ -19,6 +19,7 @@ import javax.servlet.http.HttpSession;
 import model.Cart;
 import model.User;
 
+@SuppressWarnings("serial")
 public class UserServlet extends HttpServlet {
 
     UserGet userGet = new UserGet();
@@ -66,7 +67,7 @@ public class UserServlet extends HttpServlet {
                 users = userGet.login(request.getParameter("name"), (request.getParameter("pass")));
                 if (users != null) {
                     session.setAttribute("user", users);
-                    url = "/deal.jsp";
+                    url = "/MusicShop/deal.jsp";
                 }
                 break;
 

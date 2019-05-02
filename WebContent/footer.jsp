@@ -30,7 +30,6 @@
 					<ul>
 						<li><i class="glyphicon glyphicon-map-marker" ></i>475A, Điện Biên Phủ, P.24, <span>Q.Bình Thạnh, TP. Hồ Chí Minh.</span></li>
 						<li class="foot-mid"><i class="glyphicon glyphicon-envelope" ></i><a href="mailto:contact@demomusicshop.com">contact@demomusicshop.com</a></li>
-						<li><i class="glyphicon glyphicon-earphone" ></i>093 552 6224 (Mr.Quang), 0168 784 1467 (Mr.Vũ)</li>
 					</ul>
 				</div>
 				<div class="col-md-4 footer-grid animated wow fadeInLeft" data-wow-delay=".7s">
