@@ -77,7 +77,7 @@ public class UserServlet extends HttpServlet {
                     session.setAttribute("user", users);
                     url = "/MusicShop/navigate.jsp";
                 } else {
-                    request.setAttribute("error", "Lỗi tên đăng nhập hoặc mật khẩu");
+                    request.setAttribute("error", "error!");
                     url = "/MusicShop/login.jsp";
                 }
                 break;
