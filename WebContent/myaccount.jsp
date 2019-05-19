@@ -77,7 +77,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       <ul class="nav nav-pills" role="tablist">
         <li role="presentation" class="active"><a href="myaccount.jsp"><i class="glyphicon glyphicon-user" ></i>Tài Khoản</a></li>
         <li role="presentation"><a href="checkout.jsp"><i class="glyphicon glyphicon-shopping-cart" ></i>Giỏ Hàng</a></li>
-        <li role="presentation"><a href="/MusicShop/LogoutServlet"><i class="glyphicon glyphicon-log-out" ></i><Đăng Xuất</a></li>
+        <li role="presentation"><a href="/MusicShop/LogoutServlet"><i class="glyphicon glyphicon-log-out" ></i>Đăng Xuất</a></li>
       </ul>
       </div>
         <!--//nav-->
