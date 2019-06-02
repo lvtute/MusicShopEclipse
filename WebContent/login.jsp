@@ -12,8 +12,10 @@
 	content="Classic Style Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } 
+
 </script>
 <!-- //for-mobile-apps -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"
@@ -62,7 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					if (request.getParameter("error") != null) {
 				%>
 				<div>
-					<p style="color: red"><%=request.getParameter("error")+"hihihi"%></p>
+					<p style="color: red"><%=request.getParameter("error") + "hihihi"%></p>
 				</div>
 				<%
 					}
@@ -78,8 +80,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<i class="glyphicon glyphicon-lock"></i>
 					</div>
 					<a class="news-letter " href="#"> <label class="checkbox1"><input
-							type="checkbox" name="checkbox"><i> </i>Quên mật khẩu ?
-							</label>
+							type="checkbox" name="checkbox"><i> </i>Quên mật khẩu ? </label>
 					</a>
 
 
@@ -100,7 +101,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 
-	<div class="social animated wow fadeInUp" data-wow-delay=".1s">
+	<!-- <div class="social animated wow fadeInUp" data-wow-delay=".1s">
 		<div class="container">
 			<div class="col-sm-3 social-ic">
 				<a href="#">FACEBOOK</a>
@@ -116,7 +117,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="clearfix"></div>
 		</div>
-	</div>
+	</div> -->
 
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>

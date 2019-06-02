@@ -38,20 +38,36 @@ public class UserServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
         String command = request.getParameter("command");
 
+    	StringBuilder error = new StringBuilder("");
+        
         String url = "";
         User users = new User();
         HttpSession session = request.getSession();
         switch (command) {
             case "insert":
-                users.setUserID(new java.util.Date().getTime());//id
-                users.setUserName(request.getParameter("name"));
-                users.setUserEmail(request.getParameter("email"));
-                users.setUserPass(request.getParameter(("pass")));
-                users.setUserRole(false);
-                users.setUserPhone(request.getParameter("phone"));
-                userGet.insertUser(users);
-                session.setAttribute("user", users);
-                url = "/MusicShop/navigate.jsp";
+
+            	if(!request.getParameter("confirm_pass").equals(request.getParameter("pass"))) {
+            		error.append("Mat khau xac nhan khong trung khop ");
+            		
+            		 url = "/MusicShop/register.jsp?error="+error;
+            	
+            	}
+            	
+            
+            	else {
+            		users.setUserID(new java.util.Date().getTime());//id
+                    users.setUserName(request.getParameter("name"));
+                    users.setUserEmail(request.getParameter("email"));
+                  
+                    users.setUserPass(request.getParameter(("pass")));
+                    
+                    users.setUserRole(false);
+                    users.setUserPhone(request.getParameter("phone"));
+                    userGet.insertUser(users);
+                    session.setAttribute("user", users);
+                    url = "/MusicShop/navigate.jsp";
+            	}
+                
                 break;
             case "update":
                 long user_id = Long.parseLong(request.getParameter("user_id"));
