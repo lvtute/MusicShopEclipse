@@ -6,6 +6,7 @@
 package controller;
 
 import get.UserGet;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -18,6 +19,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Cart;
 import model.User;
+
+import utils.BCrypt;
 
 @SuppressWarnings("serial")
 public class UserServlet extends HttpServlet {
@@ -48,8 +51,9 @@ public class UserServlet extends HttpServlet {
 
             	if(!request.getParameter("confirm_pass").equals(request.getParameter("pass"))) {
             		error.append("Mat khau xac nhan khong trung khop ");
+            		request.setAttribute("error", error.toString());
             		
-            		 url = "/MusicShop/register.jsp?error="+error;
+            		 url = "/MusicShop/register.jsp";
             	
             	}
             	
@@ -59,7 +63,9 @@ public class UserServlet extends HttpServlet {
                     users.setUserName(request.getParameter("name"));
                     users.setUserEmail(request.getParameter("email"));
                   
-                    users.setUserPass(request.getParameter(("pass")));
+                    String password = request.getParameter(("pass"));
+                	String hashed = BCrypt.hashpw(password, BCrypt.gensalt(12));
+                    users.setUserPass(hashed);
                     
                     users.setUserRole(false);
                     users.setUserPhone(request.getParameter("phone"));
