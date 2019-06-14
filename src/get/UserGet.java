@@ -112,6 +112,23 @@ public class UserGet {
      }
      return user;
 }
+     public User getUserByName(String name) throws SQLException {
+         Connection connection = DBConnect.getConnecttion();
+         String sql = "SELECT * FROM users WHERE user_name = '" + name + "'";
+         PreparedStatement ps = connection.prepareCall(sql);
+         ResultSet rs = ps.executeQuery();
+         User user = new User();
+         while (rs.next()) {
+             
+               user.setUserID(rs.getLong("user_id"));
+               user.setUserName(rs.getString("user_name"));
+               user.setUserEmail(rs.getString("user_email"));
+               user.setUserPass(rs.getString("user_pass"));
+               user.setUserRole(rs.getBoolean("user_role"));
+               user.setUserPhone(rs.getString("user_phone"));
+         }
+         return user;
+    }
      public boolean updateUser(User u) {
         
         Connection connection = DBConnect.getConnecttion();

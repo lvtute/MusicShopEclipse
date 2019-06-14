@@ -21,6 +21,7 @@ import model.Cart;
 import model.User;
 
 import utils.BCrypt;
+import utils.MyUtil;
 
 @SuppressWarnings("serial")
 public class UserServlet extends HttpServlet {
@@ -44,7 +45,7 @@ public class UserServlet extends HttpServlet {
     	StringBuilder error = new StringBuilder("");
         
         String url = "";
-        User users = new User();
+        User user = new User();
         HttpSession session = request.getSession();
         switch (command) {
             case "insert":
@@ -59,18 +60,18 @@ public class UserServlet extends HttpServlet {
             	
             
             	else {
-            		users.setUserID(new java.util.Date().getTime());//id
-                    users.setUserName(request.getParameter("name"));
-                    users.setUserEmail(request.getParameter("email"));
+            		user.setUserID(new java.util.Date().getTime());//id
+                    user.setUserName(request.getParameter("name"));
+                    user.setUserEmail(request.getParameter("email"));
                   
-                    String password = request.getParameter(("pass"));
-                	String hashed = BCrypt.hashpw(password, BCrypt.gensalt(12));
-                    users.setUserPass(hashed);
-                    
-                    users.setUserRole(false);
-                    users.setUserPhone(request.getParameter("phone"));
-                    userGet.insertUser(users);
-                    session.setAttribute("user", users);
+                  //generate and store the hashedText = plaintext + salt to database
+                    String hashed = hashPassword(request);
+                    user.setUserPass(hashed);
+                  //
+                    user.setUserRole(false);
+                    user.setUserPhone(request.getParameter("phone"));
+                    userGet.insertUser(user);
+                    session.setAttribute("user", user);
                     url = "/MusicShop/navigate.jsp";
             	}
                 
@@ -79,24 +80,39 @@ public class UserServlet extends HttpServlet {
                 long user_id = Long.parseLong(request.getParameter("user_id"));
                 String username = request.getParameter("username");
                 String useremail = request.getParameter("useremail");
-                String password = request.getParameter("pass");
+              //generate and store the hashedText to database
+                String hashed = hashPassword(request);
+                user.setUserPass(hashed);
+              //
                 boolean role = Boolean.parseBoolean(request.getParameter("role"));
                 String phone = request.getParameter("phone");
-                userGet.updateUser(new User(user_id, username, useremail, password, role, phone));
+                userGet.updateUser(new User(user_id, username, useremail, hashed, role, phone));
                 url = "/MusicShop/myaccount.jsp";
                 break;
             case "logindeal":
-                users = userGet.login(request.getParameter("name"), (request.getParameter("pass")));
-                if (users != null) {
-                    session.setAttribute("user", users);
+            	//Check hashed password
+            	try {
+            		user = getHashedUser(request);
+            	} catch (SQLException e) {
+    				e.printStackTrace();
+    			}
+            	//
+                if (user != null) {
+                    session.setAttribute("user", user);
                     url = "/MusicShop/deal.jsp";
                 }
                 break;
 
             case "login":
-                users = userGet.login(request.getParameter("name"), (request.getParameter("pass")));
-                if (users != null) {
-                    session.setAttribute("user", users);
+            	//Check hashed password
+            	try {
+            		user = getHashedUser(request);
+            	} catch (SQLException e) {
+            		e.printStackTrace();
+            	}
+            	//
+                if (user != null) {
+                    session.setAttribute("user", user);
                     url = "/MusicShop/navigate.jsp";
                 } else {
                     request.setAttribute("error", "error!");
@@ -108,5 +124,21 @@ public class UserServlet extends HttpServlet {
         response.sendRedirect(url);
 
     }
-
+    private User getHashedUser(HttpServletRequest request) throws SQLException {
+    	User user = new User();
+    	String name = request.getParameter("name");
+		String plaintext = request.getParameter("pass");
+		String hashed1 = userGet.getUserByName(name).getUserPass();
+		if (BCrypt.checkpw(plaintext, MyUtil.decodeValueFromHTML(hashed1)))
+			user = userGet.login(name, hashed1);
+		else 
+			user = null;
+    	return user;
+    }
+    
+    private String hashPassword(HttpServletRequest request) {
+    	String plaintext = request.getParameter(("pass"));
+    	String hashed = BCrypt.hashpw(plaintext, BCrypt.gensalt(12));
+    	return hashed;
+    }
 }

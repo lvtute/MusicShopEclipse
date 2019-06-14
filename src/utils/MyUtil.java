@@ -10,6 +10,11 @@ public class MyUtil {
   		value = (String) ESAPI.encoder().encodeForHTML(input);
   		return value;
 	}
+	public static String decodeValueFromHTML(String input){
+  		String value = "";
+  		value = (String) ESAPI.encoder().decodeForHTML(input);
+  		return value;
+	}
 	public static boolean isInteger(String s) {
    		int radix = 10;
 		Scanner sc = new Scanner(s.trim());
