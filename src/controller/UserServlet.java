@@ -83,7 +83,7 @@ public class UserServlet extends HttpServlet {
                 boolean role = Boolean.parseBoolean(request.getParameter("role"));
                 String phone = request.getParameter("phone");
                 userGet.updateUser(new User(user_id, username, useremail, password, role, phone));
-                url = "/myaccount.jsp";
+                url = "/MusicShop/myaccount.jsp";
                 break;
             case "logindeal":
                 users = userGet.login(request.getParameter("name"), (request.getParameter("pass")));
