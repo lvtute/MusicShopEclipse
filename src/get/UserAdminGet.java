@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.UserAdmin;
+import utils.MyUtil;
 
 public class UserAdminGet {
     public boolean insertUserAdmin(UserAdmin u) throws SQLException{
@@ -21,8 +22,8 @@ public class UserAdminGet {
         try{
             PreparedStatement ps = connection.prepareCall(sql);
             ps.setLong(1, u.getUseradminID());
-            ps.setString(2, u.getUseradminEmail());
-            ps.setString(3, u.getUseradminPass());
+            ps.setString(2, MyUtil.encodeValueForHTML(u.getUseradminEmail()));
+            ps.setString(3, MyUtil.encodeValueForHTML(u.getUseradminPass()));
             ps.setBoolean(4, u.isUseradminRole());
             ps.executeUpdate();
             return true;

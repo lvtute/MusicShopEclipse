@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Brand;
 import model.Category;
+import utils.MyUtil;
 
 public class BrandGet {
     public ArrayList<Brand> getListBrand() throws SQLException {
@@ -54,7 +55,7 @@ public boolean insert(Brand c) throws SQLException {
          String sql = "INSERT INTO brand VALUE(?,?)";
          PreparedStatement ps = connection.prepareCall(sql);
          ps.setLong(1, c.getBrandID());
-         ps.setString(2, c.getBrandName());
+         ps.setString(2, MyUtil.encodeValueForHTML(c.getBrandName()));
          int temp = ps.executeUpdate();
          return temp == 1;
     } catch (Exception e) {
@@ -67,7 +68,7 @@ public boolean update(Brand c) throws SQLException {
          Connection connection = DBConnect.getConnecttion();
          String sql = "UPDATE brand SET brand_name = ? WHERE brand_id = ?";
          PreparedStatement ps = connection.prepareCall(sql);
-         ps.setString(1, c.getBrandName());
+         ps.setString(1, MyUtil.encodeValueForHTML(c.getBrandName()));
          ps.setLong(2, c.getBrandID());
          int temp = ps.executeUpdate();
          return temp == 1;
@@ -94,7 +95,7 @@ public boolean delete(long brand_id) throws SQLException {
         try {
             PreparedStatement ps = connection.prepareCall(sql);
             ps.setLong(1, c.getBrandID());
-            ps.setString(2, c.getBrandName());
+            ps.setString(2, MyUtil.encodeValueForHTML(c.getBrandName()));
             return ps.executeUpdate() == 1;
         } catch (SQLException ex) {
             Logger.getLogger(BrandGet.class.getName()).log(Level.SEVERE, null, ex);
@@ -108,7 +109,7 @@ public boolean delete(long brand_id) throws SQLException {
         String sql = "UPDATE brand SET brand_name = ? WHERE brand_id = ?";
         try {
             PreparedStatement ps = connection.prepareCall(sql);
-            ps.setString(1, c.getBrandName());
+            ps.setString(1, MyUtil.encodeValueForHTML(c.getBrandName()));
             ps.setLong(2, c.getBrandID());
             return ps.executeUpdate() == 1;
         } catch (SQLException ex) {

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Category;
+import utils.MyUtil;
 
 public class CategoryGet {
     public ArrayList<Category> getListCategory() throws SQLException {
@@ -54,7 +55,7 @@ public boolean insert(Category c) throws SQLException {
          String sql = "INSERT INTO category VALUE(?,?)";
          PreparedStatement ps = connection.prepareCall(sql);
          ps.setLong(1, c.getCategoryID());
-         ps.setString(2, c.getCategoryName());
+         ps.setString(2, MyUtil.encodeValueForHTML(c.getCategoryName()));
          int temp = ps.executeUpdate();
          return temp == 1;
     } catch (Exception e) {
@@ -67,7 +68,7 @@ public boolean update(Category c) throws SQLException {
          Connection connection = DBConnect.getConnecttion();
          String sql = "UPDATE category SET category_name = ? WHERE category_id = ?";
          PreparedStatement ps = connection.prepareCall(sql);
-         ps.setString(1, c.getCategoryName());
+         ps.setString(1, MyUtil.encodeValueForHTML(c.getCategoryName()));
          ps.setLong(2, c.getCategoryID());
          int temp = ps.executeUpdate();
          return temp == 1;
@@ -94,7 +95,7 @@ public boolean delete(long category_id) throws SQLException {
         try {
             PreparedStatement ps = connection.prepareCall(sql);
             ps.setLong(1, c.getCategoryID());
-            ps.setString(2, c.getCategoryName());
+            ps.setString(2, MyUtil.encodeValueForHTML(c.getCategoryName()));
             return ps.executeUpdate() == 1;
         } catch (SQLException ex) {
             Logger.getLogger(CategoryGet.class.getName()).log(Level.SEVERE, null, ex);
@@ -108,7 +109,7 @@ public boolean delete(long category_id) throws SQLException {
         String sql = "UPDATE category SET category_name = ? WHERE category_id = ?";
         try {
             PreparedStatement ps = connection.prepareCall(sql);
-            ps.setString(1, c.getCategoryName());
+            ps.setString(1, MyUtil.encodeValueForHTML(c.getCategoryName()));
             ps.setLong(2, c.getCategoryID());
             return ps.executeUpdate() == 1;
         } catch (SQLException ex) {

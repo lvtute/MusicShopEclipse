@@ -16,6 +16,7 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Bill;
+import utils.MyUtil;
 
 
 public class BillGet {
@@ -27,11 +28,11 @@ public class BillGet {
         ps.setLong(1, bill.getBillID());
         ps.setLong(2, bill.getUserID());
         ps.setLong(3, bill.getTotal());
-        ps.setString(4, bill.getPayment());
-        ps.setString(5, bill.getAddress());
+        ps.setString(4, MyUtil.encodeValueForHTML(bill.getPayment()));
+        ps.setString(5, MyUtil.encodeValueForHTML(bill.getAddress()));
         ps.setTimestamp(6, bill.getDate());
-        ps.setString(7, bill.getName());
-        ps.setString(8, bill.getPhone());
+        ps.setString(7, MyUtil.encodeValueForHTML(bill.getName()));
+        ps.setString(8, MyUtil.encodeValueForHTML(bill.getPhone()));
         ps.executeUpdate();
     }
     

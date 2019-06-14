@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Contact;
 import model.Newsletter;
+import utils.MyUtil;
 
 public class NewsletterGet {
     
@@ -41,7 +42,7 @@ public class NewsletterGet {
         try {
             PreparedStatement ps = connection.prepareCall(sql);
          ps.setLong(1, c.getNewsletterID());    
-         ps.setString(2, c.getNewsletterName());
+         ps.setString(2, MyUtil.encodeValueForHTML(c.getNewsletterName()));
          ps.setTimestamp(3, c.getDate());
          
             return ps.executeUpdate() == 1;

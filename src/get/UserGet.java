@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.User;
+import utils.MyUtil;
 
 
 public class UserGet {
@@ -59,11 +60,11 @@ public class UserGet {
         try {
             PreparedStatement ps = connection.prepareCall(sql);
             ps.setLong(1, u.getUserID());
-            ps.setString(2, u.getUserName());
-            ps.setString(3, u.getUserEmail());
-            ps.setString(4, u.getUserPass());
+            ps.setString(2, MyUtil.encodeValueForHTML(u.getUserName()));
+            ps.setString(3, MyUtil.encodeValueForHTML(u.getUserEmail()));
+            ps.setString(4, MyUtil.encodeValueForHTML(u.getUserPass()));
             ps.setBoolean(5, u.isUserRole());
-            ps.setString(6, u.getUserPhone());
+            ps.setString(6, MyUtil.encodeValueForHTML(u.getUserPhone()));
             ps.executeUpdate();
             return true;
         } catch (SQLException ex) {
@@ -120,11 +121,11 @@ public class UserGet {
         try {
             PreparedStatement ps = connection.prepareCall(sql);
           ps.setLong(1, u.getUserID());
-            ps.setString(2, u.getUserName());
-            ps.setString(3, u.getUserEmail());
-            ps.setString(4, u.getUserPass());
+            ps.setString(2, MyUtil.encodeValueForHTML(u.getUserName()));
+            ps.setString(3, MyUtil.encodeValueForHTML(u.getUserEmail()));
+            ps.setString(4, MyUtil.encodeValueForHTML(u.getUserPass()));
             ps.setBoolean(5, u.isUserRole());
-            ps.setString(6, u.getUserPhone());
+            ps.setString(6, MyUtil.encodeValueForHTML(u.getUserPhone()));
             ps.setLong(7, u.getUserID());
             return ps.executeUpdate() == 1;
         } catch (SQLException ex) {

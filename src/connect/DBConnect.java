@@ -7,15 +7,21 @@ package connect;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class DBConnect {
     
-     public static Connection getConnecttion() {
+     public static Connection getConnecttion()
+     {
         Connection cons = null;
+        String hostName = "localhost";
+	    String dbName = "musicshop";
+	    String userName = "root";
+	    String password = "1234";
+	    String connectionURL = "jdbc:mysql://" + hostName + ":3306/" + dbName + "?autoReconnect=true&useSSL=false";
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            cons = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/musicshop?autoReconnect=true&useSSL=false", "root", "root");
+            hasDriver();
+            cons = DriverManager.getConnection(connectionURL, userName, password);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -25,5 +31,13 @@ public class DBConnect {
     public static void main(String[] args) {
         System.out.println(getConnecttion());
     }
+    protected static void hasDriver() throws SQLException
+	{
+		 try {
+			 Class.forName("com.mysql.cj.jdbc.Driver");
+		 } catch (ClassNotFoundException ex) {
+			 throw new SQLException ("Invalid Driver!!Please check this driver....");
+		 }
+	}
     
 }

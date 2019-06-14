@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Category;
 import model.Product;
+import utils.MyUtil;
 
 public class ProductGet {
 
@@ -198,13 +199,13 @@ public class ProductGet {
 			PreparedStatement ps = connection.prepareCall(sql);
 			ps.setLong(1, c.getProductID());
 			ps.setLong(2, c.getCategoryID());
-			ps.setString(3, c.getProductName());
+			ps.setString(3, MyUtil.encodeValueForHTML(c.getProductName()));
 			ps.setLong(4, c.getBrandID());
-			ps.setString(5, c.getProductImage());
-			ps.setString(6, c.getProductImageForward());
-			ps.setString(7, c.getProductImageBack());
+			ps.setString(5, MyUtil.encodeValueForHTML(c.getProductImage()));
+			ps.setString(6, MyUtil.encodeValueForHTML(c.getProductImageForward()));
+			ps.setString(7, MyUtil.encodeValueForHTML(c.getProductImageBack()));
 			ps.setLong(8, c.getProductPrice());
-			ps.setString(9, c.getProductDescription());
+			ps.setString(9, MyUtil.encodeValueForHTML(c.getProductDescription()));
 			int temp = ps.executeUpdate();
 			return temp == 1;
 		} catch (Exception e) {
@@ -219,13 +220,13 @@ public class ProductGet {
 			PreparedStatement ps = connection.prepareCall(sql);
 			ps.setLong(1, c.getProductID());
 			ps.setLong(2, c.getCategoryID());
-			ps.setString(3, c.getProductName());
+			ps.setString(3, MyUtil.encodeValueForHTML(c.getProductName()));
 			ps.setLong(4, c.getBrandID());
-			ps.setString(5, c.getProductImage());
-			ps.setString(6, c.getProductImageForward());
-			ps.setString(7, c.getProductImageBack());
+			ps.setString(5, MyUtil.encodeValueForHTML(c.getProductImage()));
+			ps.setString(6, MyUtil.encodeValueForHTML(c.getProductImageForward()));
+			ps.setString(7, MyUtil.encodeValueForHTML(c.getProductImageBack()));
 			ps.setLong(8, c.getProductPrice());
-			ps.setString(9, c.getProductDescription());
+			ps.setString(9, MyUtil.encodeValueForHTML(c.getProductDescription()));
 			int temp = ps.executeUpdate();
 			return temp == 1;
 		} catch (Exception e) {
@@ -253,13 +254,13 @@ public class ProductGet {
 			PreparedStatement ps = connection.prepareCall(sql);
 			ps.setLong(1, c.getProductID());
 			ps.setLong(2, c.getCategoryID());
-			ps.setString(3, c.getProductName());
+			ps.setString(3, MyUtil.encodeValueForHTML(c.getProductName()));
 			ps.setLong(4, c.getBrandID());
-			ps.setString(5, c.getProductImage());
-			ps.setString(6, c.getProductImageForward());
-			ps.setString(7, c.getProductImageBack());
+			ps.setString(5, MyUtil.encodeValueForHTML(c.getProductImage()));
+			ps.setString(6, MyUtil.encodeValueForHTML(c.getProductImageForward()));
+			ps.setString(7, MyUtil.encodeValueForHTML(c.getProductImageBack()));
 			ps.setLong(8, c.getProductPrice());
-			ps.setString(9, c.getProductDescription());
+			ps.setString(9, MyUtil.encodeValueForHTML(c.getProductDescription()));
 			return ps.executeUpdate() == 1;
 		} catch (SQLException ex) {
 			Logger.getLogger(ProductGet.class.getName()).log(Level.SEVERE, null, ex);
@@ -281,13 +282,13 @@ public class ProductGet {
 			PreparedStatement ps = connection.prepareCall(sql);
 			ps.setLong(1, c.getProductID());
 			ps.setLong(2, c.getCategoryID());
-			ps.setString(3, c.getProductName());
+			ps.setString(3, MyUtil.encodeValueForHTML(c.getProductName()));
 			ps.setLong(4, c.getBrandID());
-			ps.setString(5, c.getProductImage());
-			ps.setString(6, c.getProductImageForward());
-			ps.setString(7, c.getProductImageBack());
+			ps.setString(5, MyUtil.encodeValueForHTML(c.getProductImage()));
+			ps.setString(6, MyUtil.encodeValueForHTML(c.getProductImageForward()));
+			ps.setString(7, MyUtil.encodeValueForHTML(c.getProductImageBack()));
 			ps.setLong(8, c.getProductPrice());
-			ps.setString(9, c.getProductDescription());
+			ps.setString(9, MyUtil.encodeValueForHTML(c.getProductDescription()));
 			ps.setLong(10, c.getProductID());
 			return ps.executeUpdate() == 1;
 		} catch (SQLException ex) {

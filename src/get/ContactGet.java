@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import model.Contact;
 import model.Review;
 import model.User;
+import utils.MyUtil;
 
 public class ContactGet {
      public ArrayList<Contact> getListContact() throws SQLException {
@@ -45,11 +46,11 @@ public boolean insertContact(Contact c) {
         try {
             PreparedStatement ps = connection.prepareCall(sql);
          ps.setLong(1, c.getContactID());    
-         ps.setString(2, c.getContactName());
-         ps.setString(3, c.getContactWeb());
-         ps.setString(4, c.getContactEmail());
-         ps.setString(5, c.getContactTitle());
-         ps.setString(6, c.getContactMessage());
+         ps.setString(2, MyUtil.encodeValueForHTML(c.getContactName()));
+         ps.setString(3, MyUtil.encodeValueForHTML(c.getContactWeb()));
+         ps.setString(4, MyUtil.encodeValueForHTML(c.getContactEmail()));
+         ps.setString(5, MyUtil.encodeValueForHTML(c.getContactTitle()));
+         ps.setString(6, MyUtil.encodeValueForHTML(c.getContactMessage()));
          ps.setTimestamp(7, c.getDate());
          
             return ps.executeUpdate() == 1;

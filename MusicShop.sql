@@ -1,16 +1,13 @@
--- MySQL dump 10.13  Distrib 8.0.15, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: musicshop
 -- ------------------------------------------------------
--- Server version	8.0.15
+-- Server version	5.7.25-log
 
-
-create database musicshop;
-use musicshop;
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
- SET NAMES utf8 ;
+/*!40101 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -24,16 +21,16 @@ use musicshop;
 
 DROP TABLE IF EXISTS `bill`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `bill` (
   `bill_id` bigint(20) NOT NULL,
   `user_id` bigint(20) DEFAULT NULL,
   `total` decimal(10,0) DEFAULT NULL,
-  `payment` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `address` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `payment` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `address` longtext COLLATE utf8_unicode_ci,
   `date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`bill_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -44,7 +41,7 @@ CREATE TABLE `bill` (
 
 LOCK TABLES `bill` WRITE;
 /*!40000 ALTER TABLE `bill` DISABLE KEYS */;
-INSERT INTO `bill` VALUES (1488468815884,1,9000000,'Bank transfer','25 Nguyễn Xuân Ôn, P.2, Q.Bình Thạnh','2017-03-23 14:03:25',NULL,NULL),(1490686629467,3,29300000,'Bank transfer','abc','2017-03-28 07:37:09','abc','0935526224'),(1490687358000,1,20900000,'Bank transfer','tự tìm google nha','2017-03-28 07:49:18','tên gì kệ tui','0935526224'),(1490687595700,3,3865000,'Live','việt nam, trái đất, hệ mặt trời','2017-03-28 07:53:15','quang siêu cute','09999999999'),(1490683071125,1,55440000,'Bank transfer','test','2017-03-28 06:37:51','test','0935526224'),(1555600055805,3,0,'Bank transfer','dasd','2019-04-18 15:07:36','asd','a21321'),(1555654548486,3,1046915000,'Live','ZAP','2019-04-19 06:15:48','ZAP','ZAP'),(1555654841780,3,0,'Live','ZAP','2019-04-19 06:20:42','/','ZAP'),(1555654841884,3,0,'Live','ZAP','2019-04-19 06:20:42','c:\\','ZAP'),(1555654841950,3,0,'Live','ZAP','2019-04-19 06:20:42','../../../../../../../../../../../../../../../../','ZAP'),(1555654842018,3,0,'Live','ZAP','2019-04-19 06:20:42','WEB-INF/web.xml','ZAP'),(1555654842087,3,0,'Live','ZAP','2019-04-19 06:20:42','WEB-INF\\web.xml','ZAP'),(1555654842153,3,0,'Live','ZAP','2019-04-19 06:20:42','/WEB-INF/web.xml','ZAP'),(1555654842232,3,0,'Live','ZAP','2019-04-19 06:20:42','\\WEB-INF\\web.xml','ZAP'),(1555654842298,3,0,'Live','ZAP','2019-04-19 06:20:42','thishouldnotexistandhopefullyitwillnot','ZAP'),(1555654842375,3,0,'Live','c:/Windows/system.ini','2019-04-19 06:20:42','ZAP','ZAP'),(1555654842444,3,0,'Live','../../../../../../../../../../../../../../../../Windows/system.ini','2019-04-19 06:20:42','ZAP','ZAP'),(1555654842500,3,0,'Live','c:\\Windows\\system.ini','2019-04-19 06:20:43','ZAP','ZAP'),(1555654842566,3,0,'Live','..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\Windows\\system.ini','2019-04-19 06:20:43','ZAP','ZAP'),(1555654842697,3,0,'Live','/etc/passwd','2019-04-19 06:20:43','ZAP','ZAP'),(1555654842766,3,0,'Live','../../../../../../../../../../../../../../../../etc/passwd','2019-04-19 06:20:43','ZAP','ZAP'),(1555654842831,3,0,'Live','c:/','2019-04-19 06:20:43','ZAP','ZAP'),(1555654842956,3,0,'Live','/','2019-04-19 06:20:43','ZAP','ZAP'),(1555654843043,3,0,'Live','c:\\','2019-04-19 06:20:43','ZAP','ZAP'),(1555654843086,3,0,'Live','../../../../../../../../../../../../../../../../','2019-04-19 06:20:43','ZAP','ZAP'),(1555654843165,3,0,'Live','WEB-INF/web.xml','2019-04-19 06:20:43','ZAP','ZAP'),(1555654843222,3,0,'Live','WEB-INF\\web.xml','2019-04-19 06:20:43','ZAP','ZAP'),(1555654843331,3,0,'Live','/WEB-INF/web.xml','2019-04-19 06:20:43','ZAP','ZAP'),(1555654843477,3,0,'Live','\\WEB-INF\\web.xml','2019-04-19 06:20:43','ZAP','ZAP'),(1555654843678,3,0,'Live','thishouldnotexistandhopefullyitwillnot','2019-04-19 06:20:44','ZAP','ZAP'),(1555654843737,3,0,'Live','ZAP','2019-04-19 06:20:44','ZAP','c:/Windows/system.ini'),(1555654843856,3,0,'Live','ZAP','2019-04-19 06:20:44','ZAP','../../../../../../../../../../../../../../../../Windows/system.ini'),(1555654843939,3,0,'Live','ZAP','2019-04-19 06:20:44','ZAP','c:\\Windows\\system.ini'),(1555654844001,3,0,'Live','ZAP','2019-04-19 06:20:44','ZAP','..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\Windows\\system.ini'),(1555654844077,3,0,'Live','ZAP','2019-04-19 06:20:44','ZAP','/etc/passwd'),(1555654844219,3,0,'Live','ZAP','2019-04-19 06:20:44','ZAP','../../../../../../../../../../../../../../../../etc/passwd'),(1555654844288,3,0,'Live','ZAP','2019-04-19 06:20:44','ZAP','c:/'),(1555654844358,3,0,'Live','ZAP','2019-04-19 06:20:44','ZAP','/'),(1555654844444,3,0,'Live','ZAP','2019-04-19 06:20:44','ZAP','c:\\'),(1555654844524,3,0,'Live','ZAP','2019-04-19 06:20:45','ZAP','../../../../../../../../../../../../../../../../'),(1555654844664,3,0,'Live','ZAP','2019-04-19 06:20:45','ZAP','WEB-INF/web.xml'),(1555654844750,3,0,'Live','ZAP','2019-04-19 06:20:45','ZAP','WEB-INF\\web.xml'),(1555654844821,3,0,'Live','ZAP','2019-04-19 06:20:45','ZAP','/WEB-INF/web.xml'),(1555655010028,3,0,'DeliveryServlet','ZAP','2019-04-19 06:23:30','ZAP','ZAP'),(1556816992484,1490249636892,8500000,'Live','338/12 no trang long binh thanh','2019-05-02 17:09:52','luong van thuan','032211');
+INSERT INTO `bill` VALUES (1488468815884,1,9000000,'Bank transfer','25 Nguyễn Xuân Ôn, P.2, Q.Bình Thạnh','2017-03-23 14:03:25',NULL,NULL),(1490686629467,3,29300000,'Bank transfer','abc','2017-03-28 07:37:09','abc','0935526224'),(1490687358000,1,20900000,'Bank transfer','tự tìm google nha','2017-03-28 07:49:18','tên gì kệ tui','0935526224'),(1490687595700,3,3865000,'Live','việt nam, trái đất, hệ mặt trời','2017-03-28 07:53:15','quang siêu cute','09999999999'),(1490683071125,1,55440000,'Bank transfer','test','2017-03-28 06:37:51','test','0935526224'),(1556816992484,1490249636892,8500000,'Live','338/12 no trang long binh thanh','2019-05-02 17:09:52','luong van thuan','032211');
 /*!40000 ALTER TABLE `bill` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -54,7 +51,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `bill_detail`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `bill_detail` (
   `bill_detail_id` bigint(20) NOT NULL,
   `bill_id` bigint(20) DEFAULT NULL,
@@ -81,10 +78,10 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `brand`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `brand` (
   `brand_id` bigint(20) NOT NULL,
-  `brand_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `brand_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`brand_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -105,10 +102,10 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `category` (
   `category_id` bigint(11) NOT NULL AUTO_INCREMENT,
-  `category_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `category_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`category_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -129,14 +126,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `contact`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `contact` (
   `contact_id` bigint(20) NOT NULL,
-  `contact_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `contact_web` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `contact_email` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `contact_title` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `contact_message` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `contact_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `contact_web` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `contact_email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `contact_title` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `contact_message` longtext COLLATE utf8_unicode_ci,
   `contact_date` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`contact_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -148,7 +145,7 @@ CREATE TABLE `contact` (
 
 LOCK TABLES `contact` WRITE;
 /*!40000 ALTER TABLE `contact` DISABLE KEYS */;
-INSERT INTO `contact` VALUES (1490503630308,'test','test','dangquangkdc@gmail.com','test',' test','2017-03-26 04:47:10'),(1555654539557,'ZAP','ZAP','foo-bar@example.com','ZAP',' ','2019-04-19 06:15:40'),(1555654562148,'ZAP','ZAP','foo-bar@example.com','ZAP',' ','2019-04-19 06:16:02'),(1555654562234,'ZAP','ZAP','foo-bar@example.com','ZAP',' ','2019-04-19 06:16:02'),(1555654562310,'ZAP','ZAP','foo-bar@example.com','ZAP',' ','2019-04-19 06:16:02'),(1555654562386,'ZAP','ZAP','foo-bar@example.com','ZAP',' ','2019-04-19 06:16:02'),(1555654562534,'ZAP','ZAP','foo-bar@example.com','ZAP',' ','2019-04-19 06:16:03'),(1555654562717,'ZAP','ZAP','foo-bar@example.com','ZAP',' ','2019-04-19 06:16:03'),(1555654562835,'ZAP','ZAP','foo-bar@example.com','ZAP',' ','2019-04-19 06:16:03'),(1555654562913,'ZAP','ZAP','foo-bar@example.com','ZAP',' ','2019-04-19 06:16:03'),(1555654562990,'ZAP','ZAP','foo-bar@example.com','ZAP',' ','2019-04-19 06:16:03'),(1555654563100,'ZAP','ZAP','foo-bar@example.com','ZAP',' ','2019-04-19 06:16:03'),(1555654563272,'ZAP','ZAP','foo-bar@example.com','ZAP',' ','2019-04-19 06:16:03'),(1555654563416,'ZAP','ZAP','foo-bar@example.com','ZAP',' ','2019-04-19 06:16:03'),(1555654563501,'ZAP','ZAP','foo-bar@example.com','ZAP',' ','2019-04-19 06:16:04'),(1555654563582,'ZAP','ZAP','foo-bar@example.com','ZAP',' ','2019-04-19 06:16:04'),(1555654563703,'ZAP','ZAP','foo-bar@example.com','ZAP',' ','2019-04-19 06:16:04'),(1555654563882,'c:/Windows/system.ini','ZAP','foo-bar@example.com','ZAP',' ','2019-04-19 06:16:04'),(1555654564064,'../../../../../../../../../../../../../../../../Windows/system.ini','ZAP','foo-bar@example.com','ZAP',' ','2019-04-19 06:16:04'),(1555654564199,'c:\\Windows\\system.ini','ZAP','foo-bar@example.com','ZAP',' ','2019-04-19 06:16:04'),(1555654564465,'..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\Windows\\system.ini','ZAP','foo-bar@example.com','ZAP',' ','2019-04-19 06:16:04'),(1555654564569,'/etc/passwd','ZAP','foo-bar@example.com','ZAP',' ','2019-04-19 06:16:05'),(1555654564808,'../../../../../../../../../../../../../../../../etc/passwd','ZAP','foo-bar@example.com','ZAP',' ','2019-04-19 06:16:05'),(1555654564903,'c:/','ZAP','foo-bar@example.com','ZAP',' ','2019-04-19 06:16:05'),(1555654565059,'/','ZAP','foo-bar@example.com','ZAP',' ','2019-04-19 06:16:05'),(1555654565199,'c:\\','ZAP','foo-bar@example.com','ZAP',' ','2019-04-19 06:16:05'),(1555654565305,'../../../../../../../../../../../../../../../../','ZAP','foo-bar@example.com','ZAP',' ','2019-04-19 06:16:05'),(1555654843238,'ZAP','ZAP','foo-bar@example.com','ZAP','/','2019-04-19 06:20:43'),(1555654843331,'ZAP','ZAP','foo-bar@example.com','ZAP','c:\\','2019-04-19 06:20:43'),(1555654843475,'ZAP','ZAP','foo-bar@example.com','ZAP','../../../../../../../../../../../../../../../../','2019-04-19 06:20:43'),(1555654843567,'ZAP','ZAP','foo-bar@example.com','ZAP','WEB-INF/web.xml','2019-04-19 06:20:44'),(1555654843710,'ZAP','ZAP','foo-bar@example.com','ZAP','WEB-INF\\web.xml','2019-04-19 06:20:44'),(1555654843800,'ZAP','ZAP','foo-bar@example.com','ZAP','/WEB-INF/web.xml','2019-04-19 06:20:44'),(1555654843941,'ZAP','ZAP','foo-bar@example.com','ZAP','\\WEB-INF\\web.xml','2019-04-19 06:20:44'),(1555654844075,'ZAP','ZAP','foo-bar@example.com','ZAP','thishouldnotexistandhopefullyitwillnot','2019-04-19 06:20:44');
+INSERT INTO `contact` VALUES (1490503630308,'test','test','dangquangkdc@gmail.com','test',' test','2017-03-26 04:47:10');
 /*!40000 ALTER TABLE `contact` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -158,10 +155,10 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `newsletter`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `newsletter` (
   `newsletter_id` bigint(20) NOT NULL,
-  `newsletter_email` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `newsletter_email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `date` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`newsletter_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -173,7 +170,7 @@ CREATE TABLE `newsletter` (
 
 LOCK TABLES `newsletter` WRITE;
 /*!40000 ALTER TABLE `newsletter` DISABLE KEYS */;
-INSERT INTO `newsletter` VALUES (1556818426848,'asdsad@demo.com','2019-05-02 17:33:47'),(1555654536037,'ZAP','2019-04-19 06:15:36'),(1555655014082,'ZAP','2019-04-19 06:23:34'),(1555655014195,'ZAP','2019-04-19 06:23:34'),(1555655014292,'ZAP','2019-04-19 06:23:34');
+INSERT INTO `newsletter` VALUES (1556818426848,'asdsad@demo.com','2019-05-02 17:33:47');
 /*!40000 ALTER TABLE `newsletter` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -183,17 +180,17 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `product`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `product` (
   `product_id` bigint(20) NOT NULL,
   `category_id` bigint(20) DEFAULT NULL,
-  `product_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `product_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `brand_id` bigint(20) DEFAULT NULL,
-  `product_image` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `product_image_forward` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `product_image_back` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `product_image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `product_image_forward` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `product_image_back` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `product_price` decimal(10,0) DEFAULT NULL,
-  `product_description` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `product_description` longtext COLLATE utf8_unicode_ci,
   PRIMARY KEY (`product_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -214,14 +211,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `review`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `review` (
   `review_id` bigint(20) NOT NULL,
   `product_id` bigint(20) DEFAULT NULL,
-  `review_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `review_email` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `review_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `review_email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `review_star` int(11) DEFAULT NULL,
-  `review_message` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `review_message` longtext COLLATE utf8_unicode_ci,
   PRIMARY KEY (`review_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -232,7 +229,7 @@ CREATE TABLE `review` (
 
 LOCK TABLES `review` WRITE;
 /*!40000 ALTER TABLE `review` DISABLE KEYS */;
-INSERT INTO `review` VALUES (1490445318522,3,'Vô danh','mail@mail.com',5,' Sản phẩm cũng được :3'),(1490661562334,21,'test','dangquangkdc@gmail.com',2,' cũng được'),(1555654547038,2,'ZAP','foo-bar@example.com',4,' '),(1555654547095,1,'ZAP','foo-bar@example.com',4,' '),(1555654547502,3,'ZAP','foo-bar@example.com',4,' '),(1555654547526,21,'ZAP','foo-bar@example.com',4,' '),(1555654547711,24,'ZAP','foo-bar@example.com',4,' '),(1555654547698,23,'ZAP','foo-bar@example.com',4,' '),(1555654547783,11,'ZAP','foo-bar@example.com',4,' '),(1555654547879,13,'ZAP','foo-bar@example.com',4,' '),(1555654547882,10,'ZAP','foo-bar@example.com',4,' '),(1555654548034,12,'ZAP','foo-bar@example.com',4,' '),(1555654548042,4,'ZAP','foo-bar@example.com',4,' '),(1555654548188,6,'ZAP','foo-bar@example.com',4,' '),(1555654548199,14,'ZAP','foo-bar@example.com',4,' '),(1555654548393,7,'ZAP','foo-bar@example.com',4,' '),(1555654548524,8,'ZAP','foo-bar@example.com',4,' '),(1555654548733,9,'ZAP','foo-bar@example.com',4,' '),(1555654548846,20,'ZAP','foo-bar@example.com',4,' '),(1555654548971,17,'ZAP','foo-bar@example.com',4,' '),(1555654549054,18,'ZAP','foo-bar@example.com',4,' '),(1555654549138,19,'ZAP','foo-bar@example.com',4,' '),(1555654549254,15,'ZAP','foo-bar@example.com',4,' '),(1555654549364,16,'ZAP','foo-bar@example.com',4,' '),(1555654549502,5,'ZAP','foo-bar@example.com',4,' '),(1555654549649,22,'ZAP','foo-bar@example.com',4,' '),(1555655236941,22,'ZAP','foo-bar@example.com',4,' '),(1555655239009,22,'ZAP','foo-bar@example.com',4,' '),(1555655239082,22,'ZAP','foo-bar@example.com',4,' '),(1555655239153,22,'ZAP','foo-bar@example.com',4,' '),(1555655239226,22,'ZAP','foo-bar@example.com',4,' '),(1555655239332,22,'ZAP','foo-bar@example.com',4,' '),(1555655239392,22,'ZAP','foo-bar@example.com',4,' '),(1555655239470,22,'ZAP','foo-bar@example.com',4,' '),(1555655239926,22,'ZAP','foo-bar@example.com',4,' '),(1555655240061,22,'ZAP','foo-bar@example.com',4,' '),(1555655240144,22,'ZAP','foo-bar@example.com',4,' '),(1555655240231,22,'ZAP','foo-bar@example.com',4,' ');
+INSERT INTO `review` VALUES (1490445318522,3,'Vô danh','mail@mail.com',5,' Sản phẩm cũng được :3'),(1490661562334,21,'test','dangquangkdc@gmail.com',2,' cũng được');
 /*!40000 ALTER TABLE `review` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -242,11 +239,11 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `useradmin`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `useradmin` (
   `user_ad_id` bigint(20) NOT NULL,
-  `user_ad_email` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `user_ad_pass` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user_ad_email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user_ad_pass` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `user_ad_role` bit(1) DEFAULT NULL,
   PRIMARY KEY (`user_ad_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -258,7 +255,7 @@ CREATE TABLE `useradmin` (
 
 LOCK TABLES `useradmin` WRITE;
 /*!40000 ALTER TABLE `useradmin` DISABLE KEYS */;
-INSERT INTO `useradmin` VALUES (1,'admin','123',_binary '');
+INSERT INTO `useradmin` VALUES (1,'admin','123','');
 /*!40000 ALTER TABLE `useradmin` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -268,14 +265,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
- SET character_set_client = utf8mb4 ;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `user_id` bigint(20) NOT NULL,
-  `user_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `user_email` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `user_pass` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user_email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user_pass` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `user_role` bit(1) DEFAULT NULL,
-  `user_phone` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `user_phone` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -286,9 +283,17 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1556815851187,'vvv','vv','vvv',_binary '\0','vv'),(1490249636892,'a','a','a',_binary '\0','a'),(1490249751501,'b','b','b',_binary '\0','b'),(1490263429251,'test','a','a',_binary '\0','a'),(1556815801540,'yyy','yy','yyy',_binary '\0','yy'),(1556815330464,'zzz','aaa','zzz',_binary '\0','12312'),(1555600141414,'aaa','asda','xxx',_binary '\0','a21321'),(1555601926860,'xx','xx','xx',_binary '\0','xx'),(1555654548381,'ZAP','ZAP','ZAP',_binary '\0','ZAP'),(1555655494517,'ZAP','..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\Windows\\system.ini','ZAP',_binary '\0','ZAP'),(1555655494621,'ZAP','/etc/passwd','ZAP',_binary '\0','ZAP'),(1555655494696,'ZAP','../../../../../../../../../../../../../../../../etc/passwd','ZAP',_binary '\0','ZAP'),(1555655494775,'ZAP','c:/','ZAP',_binary '\0','ZAP'),(1555655494864,'ZAP','/','ZAP',_binary '\0','ZAP'),(1555655494949,'ZAP','c:\\','ZAP',_binary '\0','ZAP'),(1555655495025,'ZAP','../../../../../../../../../../../../../../../../','ZAP',_binary '\0','ZAP'),(1555655495084,'ZAP','WEB-INF/web.xml','ZAP',_binary '\0','ZAP'),(1555655495158,'ZAP','WEB-INF\\web.xml','ZAP',_binary '\0','ZAP'),(1555655495232,'ZAP','/WEB-INF/web.xml','ZAP',_binary '\0','ZAP'),(1555655495311,'ZAP','\\WEB-INF\\web.xml','ZAP',_binary '\0','ZAP'),(1555655495396,'ZAP','thishouldnotexistandhopefullyitwillnot','ZAP',_binary '\0','ZAP'),(1555655495482,'ZAP','UserServlet','ZAP',_binary '\0','ZAP'),(1555655495565,'ZAP','/UserServlet','ZAP',_binary '\0','ZAP'),(1555655495635,'ZAP','\\UserServlet','ZAP',_binary '\0','ZAP'),(1555655495708,'ZAP','ZAP','ZAP',_binary '\0','c:/Windows/system.ini'),(1555655495781,'ZAP','ZAP','ZAP',_binary '\0','../../../../../../../../../../../../../../../../Windows/system.ini'),(1555655495872,'ZAP','ZAP','ZAP',_binary '\0','c:\\Windows\\system.ini'),(1555655495936,'ZAP','ZAP','ZAP',_binary '\0','..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\Windows\\system.ini'),(1555655496029,'ZAP','ZAP','ZAP',_binary '\0','/etc/passwd'),(1555655496138,'ZAP','ZAP','ZAP',_binary '\0','../../../../../../../../../../../../../../../../etc/passwd'),(1555655496239,'ZAP','ZAP','ZAP',_binary '\0','c:/'),(1555655496398,'ZAP','ZAP','ZAP',_binary '\0','/'),(1555655496497,'ZAP','ZAP','ZAP',_binary '\0','c:\\'),(1555655496567,'ZAP','ZAP','ZAP',_binary '\0','../../../../../../../../../../../../../../../../'),(1555655496694,'ZAP','ZAP','ZAP',_binary '\0','WEB-INF/web.xml'),(1555655496759,'ZAP','ZAP','ZAP',_binary '\0','WEB-INF\\web.xml'),(1555655496833,'ZAP','ZAP','ZAP',_binary '\0','/WEB-INF/web.xml'),(1555655496900,'ZAP','ZAP','ZAP',_binary '\0','\\WEB-INF\\web.xml'),(1555655497017,'ZAP','ZAP','ZAP',_binary '\0','thishouldnotexistandhopefullyitwillnot'),(1555655497088,'ZAP','ZAP','ZAP',_binary '\0','UserServlet'),(1555655497166,'ZAP','ZAP','ZAP',_binary '\0','/UserServlet'),(1555655497235,'ZAP','ZAP','ZAP',_binary '\0','\\UserServlet'),(1555655497289,'ZAP','ZAP','c:/Windows/system.ini',_binary '\0','ZAP'),(1555655497378,'ZAP','ZAP','../../../../../../../../../../../../../../../../Windows/system.ini',_binary '\0','ZAP'),(1555655497446,'ZAP','ZAP','c:\\Windows\\system.ini',_binary '\0','ZAP'),(1555655497512,'ZAP','ZAP','..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\..\\Windows\\system.ini',_binary '\0','ZAP'),(1555655497588,'ZAP','ZAP','/etc/passwd',_binary '\0','ZAP'),(1555655497702,'ZAP','ZAP','../../../../../../../../../../../../../../../../etc/passwd',_binary '\0','ZAP'),(1555655497782,'ZAP','ZAP','c:/',_binary '\0','ZAP'),(1555655497859,'ZAP','ZAP','/',_binary '\0','ZAP'),(1555655498021,'ZAP','ZAP','c:\\',_binary '\0','ZAP'),(1555655498127,'ZAP','ZAP','../../../../../../../../../../../../../../../../',_binary '\0','ZAP'),(1555655498203,'ZAP','ZAP','WEB-INF/web.xml',_binary '\0','ZAP'),(1555655498293,'ZAP','ZAP','WEB-INF\\web.xml',_binary '\0','ZAP'),(1555655498369,'ZAP','ZAP','/WEB-INF/web.xml',_binary '\0','ZAP'),(1555655498445,'ZAP','ZAP','\\WEB-INF\\web.xml',_binary '\0','ZAP'),(1555655498525,'ZAP','ZAP','thishouldnotexistandhopefullyitwillnot',_binary '\0','ZAP'),(1555655498628,'ZAP','ZAP','UserServlet',_binary '\0','ZAP'),(1555655498728,'ZAP','ZAP','/UserServlet',_binary '\0','ZAP'),(1555655498853,'ZAP','ZAP','\\UserServlet',_binary '\0','ZAP'),(1555655498922,'ZAP','ZAP','ZAP',_binary '\0','ZAP');
+INSERT INTO `users` VALUES (1556815851187,'vvv','vv','vvv','\0','vv'),(1490249636892,'a','a','a','\0','a'),(1490249751501,'b','b','b','\0','b'),(1490263429251,'test','a','a','\0','a'),(1556815801540,'yyy','yy','yyy','\0','yy'),(1556815330464,'zzz','aaa','zzz','\0','12312'),(1555600141414,'aaa','asda','xxx','\0','a21321'),(1555601926860,'xx','xx','xx','\0','xx');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'musicshop'
+--
+
+--
+-- Dumping routines for database 'musicshop'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -299,4 +304,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-03  1:06:41
+-- Dump completed on 2019-06-14 14:14:22

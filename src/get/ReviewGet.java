@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import model.Category;
 import model.Product;
 import model.Review;
+import utils.MyUtil;
 
 public class ReviewGet {
     public ArrayList<Review> getListReviewByProduct(long product_id) throws SQLException {
@@ -59,10 +60,10 @@ public boolean insertReview(Review c) {
             PreparedStatement ps = connection.prepareCall(sql);
          ps.setLong(1, c.getReviewID());
          ps.setLong(2, c.getProductID());
-         ps.setString(3, c.getReviewName());
-         ps.setString(4, c.getReviewEmail());
+         ps.setString(3, MyUtil.encodeValueForHTML(c.getReviewName()));
+         ps.setString(4, MyUtil.encodeValueForHTML(c.getReviewEmail()));
          ps.setInt(5, c.getReviewStar());
-         ps.setString(6, c.getReviewMessage());
+         ps.setString(6, MyUtil.encodeValueForHTML(c.getReviewMessage()));
             return ps.executeUpdate() == 1;
         } catch (SQLException ex) {
             Logger.getLogger(ReviewGet.class.getName()).log(Level.SEVERE, null, ex);
@@ -77,10 +78,10 @@ public boolean insert(Review c) throws SQLException {
          PreparedStatement ps = connection.prepareCall(sql);
          ps.setLong(1, c.getReviewID());
          ps.setLong(2, c.getProductID());
-         ps.setString(3, c.getReviewName());
-         ps.setString(4, c.getReviewEmail());
+         ps.setString(3, MyUtil.encodeValueForHTML(c.getReviewName()));
+         ps.setString(4, MyUtil.encodeValueForHTML(c.getReviewEmail()));
          ps.setInt(5, c.getReviewStar());
-         ps.setString(6, c.getReviewMessage());
+         ps.setString(6, MyUtil.encodeValueForHTML(c.getReviewMessage()));
         
          int temp = ps.executeUpdate();
          return temp == 1;
