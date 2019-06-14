@@ -48,6 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             User users = (User) session.getAttribute("user");
             if (users == null) {
                 response.sendRedirect("/MusicShop/login.jsp");
+                return;
             }
           DecimalFormat formatter = new DecimalFormat("###,###,###");
     long user_id = users.getUserID();

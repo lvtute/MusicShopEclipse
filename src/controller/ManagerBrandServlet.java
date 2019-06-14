@@ -43,6 +43,7 @@ public class ManagerBrandServlet extends HttpServlet {
         }
         RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
         rd.forward(request, response);
+        return;
     }
 
     @Override
@@ -80,6 +81,7 @@ public class ManagerBrandServlet extends HttpServlet {
         }
         RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
         rd.forward(request, response);
+        return;
 
     }
 

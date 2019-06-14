@@ -57,6 +57,7 @@ public class AdminUserServlet extends HttpServlet {
                 break;
         }
         response.sendRedirect(url);
+        return;
        
     }
     

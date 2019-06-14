@@ -40,6 +40,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             User users = (User) session.getAttribute("user");
             if (users != null) {
                 response.sendRedirect("/MusicShop/deal.jsp");
+                return;
             }
         %>
         <jsp:include page="header.jsp"></jsp:include>

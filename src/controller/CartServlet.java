@@ -54,9 +54,11 @@ public class CartServlet extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 			response.sendRedirect("/MusicShop/checkout.jsp");
+			return;
 		}
 		session.setAttribute("cart", cart);
 		response.sendRedirect("/MusicShop/checkout.jsp");
+		return;
 	}
 
 }

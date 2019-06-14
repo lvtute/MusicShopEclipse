@@ -41,6 +41,7 @@ public class ManagerCategoryServlet extends HttpServlet {
         }
         RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
         rd.forward(request, response);
+        return;
     }
 
     @Override
@@ -78,6 +79,7 @@ public class ManagerCategoryServlet extends HttpServlet {
         }
         RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
         rd.forward(request, response);
+        return;
 
     }
 
